@@ -106,6 +106,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
                 .putInt("product_qty_" + product.getId(), product.getAvailableQuantity())
                 .apply();
     }
+
     public void updateList(ArrayList<Product> newList) {
         this.products = newList;
         notifyDataSetChanged();

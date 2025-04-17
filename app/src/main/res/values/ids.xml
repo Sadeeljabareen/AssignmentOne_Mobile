@@ -7,4 +7,5 @@
     <item name="filter_available" type="id"/>
     <item name="advanced_switch" type="id"/>
     <item name="price_range_group" type="id"/>
+
 </resources>

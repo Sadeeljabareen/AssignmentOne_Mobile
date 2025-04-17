@@ -6,6 +6,7 @@
         android:fromYDelta="20%"
         android:startOffset="300"
         android:toYDelta="0" />
+
     <alpha
         android:duration="1000"
         android:fromAlpha="0.0"

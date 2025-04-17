@@ -88,6 +88,7 @@ public class TransactionsActivity extends AppCompatActivity {
         int quantity;
         double price;
 
+
         TransactionRecord(String type, long timestamp, String productName, int quantity, double price) {
             this.type = type;
             this.timestamp = timestamp;

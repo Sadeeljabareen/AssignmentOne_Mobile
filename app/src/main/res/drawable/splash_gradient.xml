@@ -8,5 +8,4 @@
         android:centerColor="@color/palestine_white"
         android:endColor="@color/palestine_green"
         android:type="sweep"/>
-
 </shape>

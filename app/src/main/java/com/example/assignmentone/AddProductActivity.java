@@ -1,5 +1,4 @@
 package com.example.assignmentone;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +8,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -67,10 +64,6 @@ public class AddProductActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
 
     private void saveAddProductTransaction(Product product) {
         Set<String> transactions = sharedPreferences.getStringSet("transactions", new HashSet<>());

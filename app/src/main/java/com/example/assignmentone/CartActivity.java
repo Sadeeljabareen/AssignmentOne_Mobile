@@ -152,6 +152,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
         return total;
     }
 
+    @SuppressLint("DefaultLocale")
     private String buildConfirmationMessage(double total) {
         StringBuilder builder = new StringBuilder("Purchase Successful!\n\n");
         for (CartItem item : cartItems) {
@@ -222,8 +223,6 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
             cartAdapter.addAll(cartItems);
             cartAdapter.notifyDataSetChanged();
 
-            // OR if you prefer to keep updateCartItems():
-            // cartAdapter.updateCartItems(cartItems);
         }
         updateTotalPrice();
     }

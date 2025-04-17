@@ -66,4 +66,5 @@
             android:backgroundTint="@color/primary_color"
             android:textColor="@color/white"/>
     </LinearLayout>
+
 </ScrollView>

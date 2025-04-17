@@ -54,4 +54,5 @@
         android:backgroundTint="@color/primary_color"
         android:text="@string/checkout"
         android:textColor="@color/white" />
+
 </LinearLayout>

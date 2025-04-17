@@ -13,7 +13,6 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    // Getters and Setters
     public int getProductId() { return productId; }
     public String getName() { return name; }
     public double getPrice() { return price; }
