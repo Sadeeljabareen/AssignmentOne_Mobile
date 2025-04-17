@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         loadSavedQuantities();
         productAdapter.notifyDataSetChanged();
     }
+
     private void saveProductsToPrefs() {
         Set<String> productSet = new HashSet<>();
         for (Product product : productList) {
