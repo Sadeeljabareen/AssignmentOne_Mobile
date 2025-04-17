@@ -1,0 +1,50 @@
+<resources>
+    <!-- Original app strings -->
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="total">Total:</string>
+    <string name="_0_0">0.0</string>
+    <string name="checkout">Checkout</string>
+    <string name="search_local_products">Search Local Products</string>
+    <string name="product_name_or_keyword">Product name or keyword</string>
+    <string name="fresh_produce">Fresh Produce</string>
+    <string name="handmade_items">Handmade Items</string>
+    <string name="price">Price</string>
+    <string name="price2">Price</string>
+    <string name="local_only">Local Only</string>
+    <string name="search">Search</string>
+    <string name="todo">TODO</string>
+    <string name="product_name">Product Name</string>
+    <string name="_0_00">$0.00</string>
+    <string name="Subtraction">-</string>
+    <string name="_1">1</string>
+    <string name="addition">+</string>
+    <string name="remove">Remove</string>
+    <string name="quantity_0">Quantity: 0</string>
+    <string name="app_logo">App Logo</string>
+    <string name="transactions">Transactions</string>
+    <string name="add_product">Add Product</string>
+
+    <string name="app_name"> welcome in,Online Palestinian Products</string>
+    <string name="splash_slogan">Everything that is quintessentially Palestinian</string>
+    <string name="available_quantity">Available Quantity</string>
+    <string name="description">Description</string>
+    <string name="add_new_product">Add New Product</string>
+    <string name="product_description">Product description</string>
+    <string name="basic_search">Basic Search</string>
+    <string name="price_range">Price Range</string>
+    <string name="under_10">Under ₪10</string>
+    <string name="_10_50">₪10-₪50</string>
+    <string name="over_50">Over ₪50</string>
+    <string name="filters">Filters</string>
+    <string name="in_stock">In Stock</string>
+    <string name="advanced">Advanced:</string>
+
+    <string-array name="product_categories">
+        <item>All</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Handicrafts</item>
+        <item>Bee Products</item>
+        <item>Dairy</item>
+    </string-array>
+</resources>

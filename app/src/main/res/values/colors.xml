@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#4CAF50</color>
+    <color name="secondary_color">#FF9800</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="dark_gray">#616161</color>
+    <color name="gold">#FFD700</color>
+    <color name="dark_gold">#B8860B</color>
+    <color name="palestine_red">#9C0F2A</color>
+    <color name="palestine_black">#0A0A12</color>
+    <color name="palestine_white">#F5F9FC</color>
+    <color name="palestine_green">#007A5E</color>
+</resources>

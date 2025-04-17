@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="price_low" type="id"/>
+    <item name="price_medium" type="id"/>
+    <item name="price_high" type="id"/>
+    <item name="filter_local" type="id"/>
+    <item name="filter_available" type="id"/>
+    <item name="advanced_switch" type="id"/>
+    <item name="price_range_group" type="id"/>
+</resources>

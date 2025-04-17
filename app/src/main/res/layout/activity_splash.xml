@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_gradient">
+
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@id/splash_app_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="151dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="65dp"
+        android:contentDescription="@string/app_logo"
+        android:src="@drawable/ic_local_market" />
+
+    <TextView
+        android:id="@+id/splash_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:letterSpacing="0.1"
+        android:shadowColor="@color/dark_gold"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="3"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/splash_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/splash_slogan"
+        android:textColor="@color/palestine_black"
+        android:textSize="18sp"
+        android:letterSpacing="0.05" />
+
+    <!-- Product icons row -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_olive_branch"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_palestinian_product" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_handicraft" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_dairy" />
+    </LinearLayout>
+
+</RelativeLayout>
