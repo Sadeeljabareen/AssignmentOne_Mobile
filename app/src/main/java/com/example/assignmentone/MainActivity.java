@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText searchInput;
     private Spinner categorySpinner;
     private RadioGroup priceRangeGroup;
-    private CheckBox filterLocalOnly;
-    private CheckBox filterInStock;
-    private Switch advancedSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
         productListView = findViewById(R.id.product_list);
         goToCartButton = findViewById(R.id.go_to_cart);
         priceRangeGroup = findViewById(R.id.price_range_group);
-        filterLocalOnly = findViewById(R.id.filter_local);
-        filterInStock = findViewById(R.id.filter_available);
-        advancedSwitch = findViewById(R.id.advanced_switch);
+
     }
 
     private void setupSharedPreferences() {
@@ -251,9 +246,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            // Get filter states
-            boolean localOnly = filterLocalOnly != null && filterLocalOnly.isChecked();
-            boolean inStockOnly = filterInStock != null && filterInStock.isChecked();
 
             ArrayList<Product> filteredList = new ArrayList<>();
 
@@ -268,12 +260,7 @@ public class MainActivity extends AppCompatActivity {
                         product.getCategory().equals(selectedCategory);
                 boolean matchesPrice = product.getPrice() >= minPrice &&
                         product.getPrice() <= maxPrice;
-                boolean matchesLocal = !localOnly || product.isLocal();
-                boolean matchesStock = !inStockOnly || product.getAvailableQuantity() > 0;
 
-                if (matchesName && matchesCategory && matchesPrice && matchesLocal && matchesStock) {
-                    filteredList.add(product);
-                }
             }
 
             // Update adapter with filtered results

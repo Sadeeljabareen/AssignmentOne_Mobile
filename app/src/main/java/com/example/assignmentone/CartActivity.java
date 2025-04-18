@@ -72,7 +72,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
     private void setupCheckoutButton() {
         checkoutButton.setOnClickListener(v -> {
             checkout();
-            finish(); // Close the cart activity after checkout
+            finish();
         });
     }
 
@@ -91,13 +91,10 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
             return;
         }
 
-        // Save transaction history
         saveTransactionHistory();
 
-        // Clear cart completely
         clearCart();
 
-        // Show purchase confirmation
         showPurchaseConfirmation();
     }
 
@@ -121,20 +118,16 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
     }
 
     private void clearCart() {
-        // Clear from SharedPreferences
         sharedPreferences.edit()
                 .putStringSet("cart", new HashSet<>())
                 .apply();
 
-        // Clear local list
         cartItems.clear();
 
-        // Update adapter
         if (cartAdapter != null) {
             cartAdapter.notifyDataSetChanged();
         }
 
-        // Update total price
         updateTotalPrice();
     }
 
@@ -170,10 +163,8 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
         // Update inventory
         restoreProductQuantity(productId, removedQuantity);
 
-        // Update total immediately
         updateTotalPrice();
 
-        // Show feedback if cart is empty
         if (cartItems.isEmpty()) {
             showEmptyCartMessage();
         }
@@ -218,7 +209,6 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
     private void refreshCart() {
         loadCartItems();
         if (cartAdapter != null) {
-            // Either use this approach:
             cartAdapter.clear();
             cartAdapter.addAll(cartItems);
             cartAdapter.notifyDataSetChanged();

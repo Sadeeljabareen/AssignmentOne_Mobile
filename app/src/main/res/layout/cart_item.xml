@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/item_bg"
     android:orientation="horizontal"
+    style="@style/CustomLayoutStyle"
     android:padding="12dp">
 
 
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/cart_item_name"
@@ -31,18 +33,11 @@
             android:textSize="14sp" />
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/decrease_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:backgroundTint="@color/secondary_color"
-            android:text="@string/Subtraction"
-            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/cart_item_quantity"
@@ -53,12 +48,20 @@
             android:textColor="@color/black" />
 
         <Button
+            android:id="@+id/decrease_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="@string/Subtraction"
+            android:textColor="@color/black" />
+
+        <Button
             android:id="@+id/increase_button"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:backgroundTint="@color/secondary_color"
             android:text="@string/addition"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
+
+
     </LinearLayout>
 
     <Button
