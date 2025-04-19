@@ -64,12 +64,23 @@ public class MainActivity extends AppCompatActivity {
         Set<String> productSet = sharedPreferences.getStringSet("products", new HashSet<>());
 
         if (productSet.isEmpty()) {
-            // If no saved products, load the default ones
             productList.add(new Product(1, "Red Apple", 2.5, "Fresh red apple from local farms", 10, "Fruits", true));
             productList.add(new Product(2, "Handmade Pottery", 15.0, "Artistic masterpiece by local artisan", 5, "Handicrafts", true));
             productList.add(new Product(3, "Organic Tomato", 3.0, "Organic tomatoes free from pesticides", 20, "Vegetables", true));
             productList.add(new Product(4, "Natural Honey", 10.0, "100% pure natural bee honey", 8, "Bee Products", true));
             productList.add(new Product(5, "Wicker Basket", 7.5, "Hand-woven wicker basket", 3, "Handicrafts", true));
+            productList.add(new Product(6, "Za'atar Mix", 8.0, "Traditional Palestinian thyme mix with sesame and sumac", 12, "Palestinian food", true));
+            productList.add(new Product(7, "Makdous", 7.0, "Pickled baby eggplants stuffed with walnuts and peppers", 10, "Palestinian food", true));
+            productList.add(new Product(8, "Dibs Tamr (Date Molasses)", 6.5, "Natural sweet syrup made from dates", 9, "Palestinian food", true));
+            productList.add(new Product(9, "Extra Virgin Olive Oil", 18.0, "Cold-pressed from ancient Palestinian olive groves", 8, "Olive Oil Products", true));
+            productList.add(new Product(10, "Olive Wood Carving", 35.0, "Hand-carved olive wood decoration", 4, "Handicrafts", true));
+            productList.add(new Product(11, "Olive Oil Soap (Nabulsi)", 10.0, "Traditional olive oil soap from Nablus", 20, "Olive Oil Products", true));
+            productList.add(new Product(12, "Tatreez Embroidery", 45.0, "Hand-stitched Palestinian traditional dress", 3, "Traditional Costumes", true));
+            productList.add(new Product(13, "Palestinian Keffiyeh", 15.0, "Black and white traditional scarf", 15, "Traditional Costumes", true));
+            productList.add(new Product(14, "Hand-Painted Ceramic Plate", 22.0, "Hebron-style ceramic art", 7, "Handicrafts", true));
+            productList.add(new Product(15, "Akkawi Cheese", 12.0, "Salty white cheese from Palestine", 10, "Dairy Products", true));
+            productList.add(new Product(16, "Jameed (Dried Yogurt)", 9.0, "Traditional dried yogurt for Mansaf", 6, "Dairy Products", true));
+
 
             // Save the default products
             saveProductsToPrefs();
@@ -198,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         categories.add("Vegetables");
         categories.add("Handicrafts");
         categories.add("Bee Products");
-        categories.add("Palestinian Sweets");
+        categories.add("Palestinian food");
         categories.add("Olive Oil Products");
         categories.add("Traditional Costumes");
         categories.add("Dairy Products");
