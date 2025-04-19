@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeProductList() {
         productList = new ArrayList<>();
 
-        // Load from SharedPreferences first
+        // Load from SharedPreferences
         Set<String> productSet = sharedPreferences.getStringSet("products", new HashSet<>());
 
         if (productSet.isEmpty()) {
@@ -82,10 +82,9 @@ public class MainActivity extends AppCompatActivity {
             productList.add(new Product(16, "Jameed (Dried Yogurt)", 9.0, "Traditional dried yogurt for Mansaf", 6, "Dairy Products", true));
 
 
-            // Save the default products
             saveProductsToPrefs();
         } else {
-            // Load products from SharedPreferences
+            // Load the products from SharedPreferences
             for (String productJson : productSet) {
                 try {
                     JSONObject jsonObject = new JSONObject(productJson);
@@ -115,10 +114,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void refreshProductList() {
-        // Clear existing products
         productList.clear();
 
-        // Reload from SharedPreferences
         Set<String> productSet = sharedPreferences.getStringSet("products", new HashSet<>());
 
         for (String productJson : productSet) {
@@ -138,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Reload quantities and update adapter
         loadSavedQuantities();
         productAdapter.notifyDataSetChanged();
     }
@@ -175,14 +171,12 @@ public class MainActivity extends AppCompatActivity {
         productListView.setAdapter(productAdapter);
     }
 
-    // In your setupButtonListeners() method:
     private void setupButtonListeners() {
         goToCartButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CartActivity.class);
             startActivity(intent);
         });
 
-        // Add this for the transactions button
         Button transactionsButton = findViewById(R.id.transactions_button);
         transactionsButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, TransactionsActivity.class);
@@ -202,7 +196,6 @@ public class MainActivity extends AppCompatActivity {
         categorySpinner = findViewById(R.id.category_spinner);
         Button searchButton = findViewById(R.id.search_button);
 
-        // Setup category spinner
         ArrayList<String> categories = new ArrayList<>();
         categories.add("All Categories");
         categories.add("Fruits");
@@ -239,54 +232,59 @@ public class MainActivity extends AppCompatActivity {
             String searchQuery = searchInput.getText().toString().toLowerCase().trim();
             String selectedCategory = categorySpinner.getSelectedItem().toString();
 
-            // Initialize price range defaults
             double minPrice = 0;
             double maxPrice = Double.MAX_VALUE;
 
-            // Only process price range if RadioGroup is initialized
-            if (priceRangeGroup != null) {
-                int selectedPriceRangeId = priceRangeGroup.getCheckedRadioButtonId();
+            int selectedPriceId = priceRangeGroup.getCheckedRadioButtonId();
 
-                if (selectedPriceRangeId == R.id.price_low) {
-                    maxPrice = 10;
-                } else if (selectedPriceRangeId == R.id.price_medium) {
-                    minPrice = 10;
-                    maxPrice = 50;
-                } else if (selectedPriceRangeId == R.id.price_high) {
-                    minPrice = 50;
-                }
+            if (selectedPriceId == R.id.price_low) {
+                maxPrice = 10;
+            } else if (selectedPriceId == R.id.price_medium) {
+                minPrice = 10;
+                maxPrice = 50;
+            } else if (selectedPriceId == R.id.price_high) {
+                minPrice = 50;
             }
-
 
             ArrayList<Product> filteredList = new ArrayList<>();
 
-            if (productList == null) {
-                Toast.makeText(this, "Product list is not initialized", Toast.LENGTH_SHORT).show();
-                return;
+            Set<String> productSet = sharedPreferences.getStringSet("products", new HashSet<>());
+            productList.clear();
+
+            for (String productJson : productSet) {
+                JSONObject jsonObject = new JSONObject(productJson);
+                productList.add(new Product(
+                        jsonObject.getInt("id"),
+                        jsonObject.getString("name"),
+                        jsonObject.getDouble("price"),
+                        jsonObject.getString("description"),
+                        jsonObject.getInt("availableQuantity"),
+                        jsonObject.getString("category"),
+                        jsonObject.getBoolean("isLocal")
+                ));
             }
 
             for (Product product : productList) {
-                boolean matchesName = product.getName().toLowerCase().contains(searchQuery);
+                boolean matchesName = searchQuery.isEmpty() ||
+                        product.getName().toLowerCase().contains(searchQuery);
                 boolean matchesCategory = selectedCategory.equals("All Categories") ||
                         product.getCategory().equals(selectedCategory);
                 boolean matchesPrice = product.getPrice() >= minPrice &&
                         product.getPrice() <= maxPrice;
 
+                if (matchesName && matchesCategory && matchesPrice) {
+                    filteredList.add(product);
+                }
             }
 
-            // Update adapter with filtered results
-            if (productAdapter == null) {
-                productAdapter = new ProductAdapter(this, filteredList);
-                productListView.setAdapter(productAdapter);
-            } else {
-                productAdapter.updateProducts(filteredList);
-            }
+            productAdapter.updateProducts(filteredList);
 
             if (filteredList.isEmpty()) {
                 Toast.makeText(this, "No products found", Toast.LENGTH_SHORT).show();
             }
+
         } catch (Exception e) {
-            Toast.makeText(this, "Error during search: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Search error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
